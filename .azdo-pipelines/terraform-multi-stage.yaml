@@ -73,6 +73,9 @@ stages:
               artifact: tfplan
               pattern: '**/*.tfplan'
               path: $(Build.SourcesDirectory)/$(WorkingDirectory)
+          - task: TerraformInstaller@0
+            inputs:
+              terraformVersion: 'latest'
           - task: Bash@3
             displayName: "terraform validate"
             inputs:
